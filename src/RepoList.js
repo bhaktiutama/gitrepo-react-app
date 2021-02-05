@@ -12,13 +12,14 @@ export default class RepoList extends React.Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-    
     }
 
+    // capture any input change and set state 
     handleChange = event => {
         this.setState({ username: event.target.value })
     }
 
+    // capture any submit event and call gitapi
     handleSubmit = event => {
         event.preventDefault();
 
@@ -30,6 +31,7 @@ export default class RepoList extends React.Component {
         }) 
     }
 
+    // render ui to client
     render() {
         return (
             <div>
