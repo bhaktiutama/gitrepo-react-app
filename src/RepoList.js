@@ -35,14 +35,24 @@ export default class RepoList extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                 <label>
-                    username:
-                    <input type="text" name="name" onChange={this.handleChange} />
+                    <input type="text" name="name" onChange={this.handleChange} placeholder="Username"/>
                 </label>
                 <input type="submit" value="Submit" />
+                <p></p>
                 </form>
-                <ul>
-                    { this.state.repos.map(repo => <li>{repo.name}</li>)}
-                </ul>
+                { this.state.repos.map(repo => 
+                    <p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{repo.name}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{repo.created_at}</h6>
+                                <p class="card-text">{repo.description}</p>
+                                <a href={repo.html_url} class="card-link">View On Github</a>
+                                <a href={repo.git_url} class="card-link">Git Url</a>                                
+                            </div>
+                        </div>
+                    </p>
+                )}
             </div>
         )
     } 
